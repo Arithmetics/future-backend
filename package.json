@@ -1,8 +1,8 @@
 {
-  "name": "ts-yoga-prisma",
+  "name": "future-backend",
   "version": "1.0.0",
-  "description": "Typescript yoga prisma boilerplate",
-  "repository": "https://github.com/dooboolab/ts-yoga-prisma",
+  "description": "Typescript apollo prisma boilerplate",
+  "repository": "https://github.com/arithmetics/future-backend",
   "license": "MIT",
   "scripts": {
     "dev": "dotenv -e ./dotenv/prod.env -- nexus dev",
