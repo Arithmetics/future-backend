@@ -1,17 +1,6 @@
-import { asNexusMethod, enumType } from '@nexus/schema';
 import { GraphQLDate } from 'graphql-iso-date';
 import { GraphQLUpload } from 'graphql-upload';
-import { schema } from 'nexus';
-
-schema.enumType({
-  name: 'AuthType',
-  members: ['Email', 'Facebook', 'Google', 'Apple'],
-});
-
-schema.enumType({
-  name: 'Gender',
-  members: ['Male', 'Female'],
-});
+import { asNexusMethod } from '@nexus/schema';
 
 export const Upload = GraphQLUpload;
 export const DateTime = GraphQLDate;
