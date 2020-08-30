@@ -16,9 +16,9 @@
     "generate:prisma": "prisma generate",
     "generate:nexus": "ts-node --transpile-only src/schema",
     "postinstall": "yarn run generate",
-    "migrate:save": "prisma migrate save --experimental",
-    "migrate:up": "prisma migrate up --experimental",
-    "migrate:down": "prisma migrate down 1 --experimental"
+    "migrate:save": "dotenv -e ./dotenv/dev.env -- prisma migrate save --experimental",
+    "migrate:up": "dotenv -e ./dotenv/dev.env -- prisma migrate up --experimental",
+    "migrate:down": "dotenv -e ./dotenv/dev.env -- prisma migrate down 1 --experimental"
   },
   "dependencies": {
     "@nexus/schema": "^0.14.0",
