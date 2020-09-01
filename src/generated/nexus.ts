@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-
+import * as Context from "../context"
 import { core } from "@nexus/schema"
 declare global {
   interface NexusGenCustomInputMethods<TypeName extends string> {
@@ -30,9 +30,9 @@ declare global {
 
 export interface NexusGenInputs {
   UserCreateInput: { // input type
-    birthday?: any | null; // Date
+    birthday?: NexusGenScalars['Date'] | null; // Date
     email: string; // String!
-    gender?: any | null; // Gender
+    gender?: NexusGenScalars['Gender'] | null; // Gender
     name?: string | null; // String
     nickname?: string | null; // String
     password: string; // String!
@@ -40,9 +40,9 @@ export interface NexusGenInputs {
     statusMessage?: string | null; // String
   }
   UserUpdateInput: { // input type
-    birthday?: any | null; // Date
+    birthday?: NexusGenScalars['Date'] | null; // Date
     email?: string | null; // String
-    gender?: any | null; // Gender
+    gender?: NexusGenScalars['Gender'] | null; // Gender
     name?: string | null; // String
     nickname?: string | null; // String
     phone?: string | null; // String
@@ -54,6 +54,18 @@ export interface NexusGenEnums {
   AuthType: "Apple" | "Email" | "Facebook" | "Google"
 }
 
+export interface NexusGenScalars {
+  String: string
+  Int: number
+  Float: number
+  Boolean: boolean
+  ID: string
+  Date: any
+  DateTime: any
+  Gender: any
+  Upload: any
+}
+
 export interface NexusGenRootTypes {
   AuthPayload: { // root type
     token: string; // String!
@@ -62,12 +74,12 @@ export interface NexusGenRootTypes {
   Mutation: {};
   Post: { // root type
     content?: string | null; // String
-    createdAt: any; // DateTime!
-    deletedAt?: any | null; // DateTime
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     id: number; // Int!
     published: boolean; // Boolean!
     title: string; // String!
-    updatedAt: any; // DateTime!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   Profile: { // root type
     authType: NexusGenEnums['AuthType']; // AuthType!
@@ -78,34 +90,34 @@ export interface NexusGenRootTypes {
   Query: {};
   Subscription: {};
   User: { // root type
-    birthDay?: any | null; // DateTime
-    createdAt: any; // DateTime!
-    deletedAt?: any | null; // DateTime
+    birthDay?: NexusGenScalars['DateTime'] | null; // DateTime
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     email: string; // String!
-    gender?: any | null; // Gender
+    gender?: NexusGenScalars['Gender'] | null; // Gender
     id: string; // String!
     name?: string | null; // String
     nickname?: string | null; // String
     phone?: string | null; // String
     photoURL?: string | null; // String
     thumbURL?: string | null; // String
-    updatedAt: any; // DateTime!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
-  String: string;
-  Int: number;
-  Float: number;
-  Boolean: boolean;
-  ID: string;
-  Date: any;
-  DateTime: any;
-  Gender: any;
-  Upload: any;
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
   UserCreateInput: NexusGenInputs['UserCreateInput'];
   UserUpdateInput: NexusGenInputs['UserUpdateInput'];
   AuthType: NexusGenEnums['AuthType'];
+  String: NexusGenScalars['String'];
+  Int: NexusGenScalars['Int'];
+  Float: NexusGenScalars['Float'];
+  Boolean: NexusGenScalars['Boolean'];
+  ID: NexusGenScalars['ID'];
+  Date: NexusGenScalars['Date'];
+  DateTime: NexusGenScalars['DateTime'];
+  Gender: NexusGenScalars['Gender'];
+  Upload: NexusGenScalars['Upload'];
 }
 
 export interface NexusGenFieldTypes {
@@ -123,12 +135,12 @@ export interface NexusGenFieldTypes {
   }
   Post: { // field return type
     content: string | null; // String
-    createdAt: any; // DateTime!
-    deletedAt: any | null; // DateTime
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
     id: number; // Int!
     published: boolean; // Boolean!
     title: string; // String!
-    updatedAt: any; // DateTime!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
     user: NexusGenRootTypes['User']; // User!
   }
   Profile: { // field return type
@@ -148,11 +160,11 @@ export interface NexusGenFieldTypes {
     userUpdated: NexusGenRootTypes['User']; // User!
   }
   User: { // field return type
-    birthDay: any | null; // DateTime
-    createdAt: any; // DateTime!
-    deletedAt: any | null; // DateTime
+    birthDay: NexusGenScalars['DateTime'] | null; // DateTime
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
     email: string; // String!
-    gender: any | null; // Gender
+    gender: NexusGenScalars['Gender'] | null; // Gender
     id: string; // String!
     name: string | null; // String
     nickname: string | null; // String
@@ -161,7 +173,7 @@ export interface NexusGenFieldTypes {
     posts: NexusGenRootTypes['Post'][]; // [Post!]!
     profile: NexusGenRootTypes['Profile'] | null; // Profile
     thumbURL: string | null; // String
-    updatedAt: any; // DateTime!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
 }
 
@@ -224,7 +236,7 @@ export type NexusGenScalarNames = "Boolean" | "Date" | "DateTime" | "Float" | "G
 export type NexusGenUnionNames = never;
 
 export interface NexusGenTypes {
-  context: any;
+  context: Context.Context;
   inputTypes: NexusGenInputs;
   rootTypes: NexusGenRootTypes;
   argTypes: NexusGenArgTypes;

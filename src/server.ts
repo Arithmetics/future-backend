@@ -11,7 +11,6 @@ const { PORT = 5000 } = process.env;
 const app = express();
 const server = createServer(app);
 const permissionedSchema = applyMiddleware(schema, permissions);
-// const apollo = new ApolloServer({ typeDefs, resolvers });
 const apollo = new ApolloServer({
   schema: permissionedSchema,
   context: createContext,
