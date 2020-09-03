@@ -88,7 +88,6 @@ export interface NexusGenRootTypes {
     verified: boolean; // Boolean!
   }
   Query: {};
-  Subscription: {};
   User: { // root type
     birthDay?: NexusGenScalars['DateTime'] | null; // DateTime
     createdAt: NexusGenScalars['DateTime']; // DateTime!
@@ -155,10 +154,6 @@ export interface NexusGenFieldTypes {
     me: NexusGenRootTypes['User'] | null; // User
     post: NexusGenRootTypes['Post'] | null; // Post
   }
-  Subscription: { // field return type
-    userSignedIn: NexusGenRootTypes['User']; // User!
-    userUpdated: NexusGenRootTypes['User']; // User!
-  }
   User: { // field return type
     birthDay: NexusGenScalars['DateTime'] | null; // DateTime
     createdAt: NexusGenScalars['DateTime']; // DateTime!
@@ -208,14 +203,6 @@ export interface NexusGenArgTypes {
       id?: number | null; // Int
     }
   }
-  Subscription: {
-    userSignedIn: { // args
-      userId: string; // String!
-    }
-    userUpdated: { // args
-      userId: string; // String!
-    }
-  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -223,7 +210,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Mutation" | "Post" | "Profile" | "Query" | "Subscription" | "User";
+export type NexusGenObjectNames = "AuthPayload" | "Mutation" | "Post" | "Profile" | "Query" | "User";
 
 export type NexusGenInputNames = "UserCreateInput" | "UserUpdateInput";
 
