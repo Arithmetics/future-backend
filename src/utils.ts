@@ -19,11 +19,12 @@ interface Token {
   userId: string;
 }
 
-export function getUserId(context: Context): string {
+export function getUserId(context: Context): string | undefined {
   const Authorization = context.request.req.get("Authorization");
   if (Authorization) {
     const token = Authorization.replace("Bearer ", "");
     const verifiedToken = verify(token, APP_SECRET) as Token;
     return verifiedToken && verifiedToken.userId;
   }
+  return undefined;
 }
